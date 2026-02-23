@@ -31,10 +31,10 @@ func main() {
 		log.Fatalf("Failed to auto migrate database: %v", err)
 	}
 
-	// Initialize repository, service, and controller
-	todoRepository := repository.NewTodoRepository(db)
-	todoService := services.NewTodoService(todoRepository)
-	todoController := controllers.NewTodoController(todoService)
+	// // Initialize repository, service, and controller
+	// todoRepository := repository.NewTodoRepository(db)
+	// todoService := services.NewTodoService(todoRepository)
+	// todoController := controllers.NewTodoController(todoService)
 
 	// Setup Gin router
 	r := gin.Default()
