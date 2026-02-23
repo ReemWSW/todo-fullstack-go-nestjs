@@ -1,6 +1,8 @@
 module todo-fullstack/backend
 
-go 1.18
+go 1.24.0
+
+toolchain go1.24.5
 
 require (
 	github.com/gin-gonic/gin v1.11.0

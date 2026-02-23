@@ -17,9 +17,9 @@ import (
 )
 
 func main() {
-	// Load environment variables
+	// Load environment variables (optional - Docker Compose sets them directly)
 	if err := godotenv.Load(); err != nil {
-		log.Fatalf("Error loading .env file: %v", err)
+		log.Println("No .env file found, using environment variables")
 	}
 
 	// Initialize database

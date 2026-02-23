@@ -13,6 +13,7 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   backend:
     build: ./backend
@@ -27,7 +28,7 @@ services:
       - DB_NAME=todo_db
       - DB_PORT=5432
       - DB_SSLMODE=disable
-      - DB_TIMEZONE=Asia/Bangkok
+      - DB_TIMEZONE=UTC
     depends_on:
       - db
 
