@@ -13,7 +13,6 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   backend:
     build: ./backend
@@ -28,18 +27,18 @@ services:
       - DB_NAME=todo_db
       - DB_PORT=5432
       - DB_SSLMODE=disable
-      - DB_TIMEZONE=UTC
+      - DB_TIMEZONE=Asia/Bangkok
     depends_on:
       - db
 
   frontend:
-    build: ./frontend
+    build: ./web
     container_name: todo_frontend
     restart: always
     ports:
       - "3000:3000"
     environment:
-      - BACKEND_URL=http://backend:8080/api/todos
+      - NEXT_PUBLIC_API_URL=http://localhost:8080/api
     depends_on:
       - backend
 
